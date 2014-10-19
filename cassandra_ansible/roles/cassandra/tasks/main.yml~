@@ -1,0 +1,17 @@
+- name: add cassandra debian repository
+  apt_repository: repo='deb http://debian.datastax.com/community stable main' state=present
+
+- name: add the key for the cassandra debian repo
+  command: curl -L http://debian.datastax.com/debian/repo_key | apt-key add -
+
+- name: run apt-get update
+  command: apt-get update
+
+- name: install cassandra
+  apt: name=cassandra state=present update_cache=yes
+
+- name: override cassandra.yaml file
+  template: src=cassandra.yaml dest=/etc/cassandra/
+
+- name: make sure cassandra is started
+  service: name=cassandra state=restarted

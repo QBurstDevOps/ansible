@@ -1,0 +1,13 @@
+---
+
+- hosts: cassandra_hosts
+  remote_user: user
+  sudo: yes
+  vars:
+    cluster_name: Cluster_1
+    seeds: 10.4.0.254,10.4.0.88
+
+  roles:
+    - cassandra
+
+

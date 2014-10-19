@@ -1,0 +1,6 @@
+[cassandra_hosts]
+10.4.0.254
+10.4.0.88
+
+[opscenter_hosts]
+10.4.0.79
